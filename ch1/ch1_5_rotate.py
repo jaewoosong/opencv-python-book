@@ -12,6 +12,13 @@ import matplotlib.pyplot as plt
 
 그림회전 = cv2.getRotationMatrix2D(회전중심, 회전각도, 1) # 1은 확대/축소값입니다.    
 회전결과 = cv2.warpAffine(그림RGB, 그림회전, (새세로, 새가로))
-plt.imshow(회전결과, interpolation='bicubic')
+
+# 이 아래 부분은 그림을 화면에 출력하기 위한 부분으로, OpenCV 알고리즘과는 상관이 없습니다.
+plt.subplot(1, 2, 1) # 1행 2열에서 1번째 열
+plt.imshow(그림RGB)
+
+plt.subplot(1, 2, 2) # 1행 2열에서 2번째 열
+plt.imshow(회전결과)
+
 plt.show()
 
